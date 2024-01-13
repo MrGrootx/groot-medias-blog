@@ -10,7 +10,7 @@ function loadFullFunctions(e) {
 
   async function getNewsData() {
     try {
-      const response = await fetch(api_url2);
+      const response = await fetch(api_url1);
       const jsonData = await response.json();
       return jsonData;
     } catch (error) {
