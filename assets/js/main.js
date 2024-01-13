@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded", loadFullFunctions);
 const api_url1 =
   "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c48331c6ab19466d8db12780d436e488";
-  const api_url2 =
-  "https://newsapi.org/v2/everything?q=apple&from=2024-01-11&to=2024-01-11&sortBy=popularity&apiKey=c48331c6ab19466d8db12780d436e488";
-  const api_url3 =
-  "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=c48331c6ab19466d8db12780d436e488";
 function loadFullFunctions(e) {
   const newsgriddiv = document.querySelector("#newsgriddiv");
 
