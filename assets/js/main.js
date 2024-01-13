@@ -10,7 +10,7 @@ function loadFullFunctions(e) {
 
   async function getNewsData() {
     try {
-      const response = await fetch(api_url1 || api_url2 || api_url3);
+      const response = await fetch(api_url2);
       const jsonData = await response.json();
       return jsonData;
     } catch (error) {
@@ -22,12 +22,12 @@ function loadFullFunctions(e) {
     const data = res.articles;
 
     data.forEach(async (el) => {
-      console.log(el);
+      // console.log(el);
 
       const element = await el;
       const publishedAt = element.publishedAt;
       const date = new Date(publishedAt).toLocaleString()
-      console.log(publishedAt);
+      // console.log(publishedAt);
       newsgriddiv.innerHTML += `
         <div class="border p-2 rounded overflow-hidden w-full">
           <div class="overflow-hidden  border w-full" style="height: 150px;">
