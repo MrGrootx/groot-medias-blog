@@ -6,6 +6,7 @@ export default {
     fontFamily: {
       Poppins: ["Poppins", "sans-serif"],
       Mallanna: ["Mallanna", "sans-serif"],
+      Ubuntu: ["Ubuntu Condensed", "sans-serif"],
     },
   },
   plugins: [],

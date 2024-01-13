@@ -8,21 +8,61 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body class="font-Poppins bg-gray-50">
-    
+    <main class="">
+      <section class="container mx-auto">
+        <nav class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="./index.html"
+              ><img src="./assets/img/logo.png" class="w-20" alt=""
+            /></a>
+            <h3 class="font-Mallanna text-xl font-bold hidden sm:block">
+              Groot <span class="text-[#EE9322]">Medias</span>
+            </h3>
+          </div>
 
-    <main class="container border mx-auto">
-      <nav class="flex items-center justify-between">
-        <div class="flex items-center">
-          <img src="./assets/img/logo.png" class="w-20" alt="">
-          <h3 class="font-Mallanna text-xl font-bold hidden sm:block">Groot <span class="text-[#EE9322]">Medias</span></h3>
+          <ul class="flex cursor-pointer">
+            <li class="mr-3 bg-[#EE9322] px-3 py-1 hover:bg-yellow-500 rounded">
+              Home
+            </li>
+            <li class="mr-3 bg-[#EE9322] px-3 py-1 hover:bg-yellow-500 rounded">
+              About
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <header class="">
+        <div class="relative">
+          <div class="h-[60vh] bg-black w-full">
+            <img
+              src="./assets/img/77A1578.jpg"
+              class="h-full object-cover w-full opacity-55"
+              alt=""
+            />
+          </div>
+          <div class="absolute top-0 left-0 h-full w-full flex px-10 sm:px-0">
+            <div class="my-auto w-full container mx-auto">
+              <h4
+                class="font-semibold text-white font-Ubuntu tracking-wider text-xl"
+              >
+                SOME NEWS ARTICLE
+              </h4>
+              <p class="w-96 text-sm text-gray-200">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et
+                libero eum aliquid corrupti veritatis voluptates temporibus
+                laudantium. Porro quae rerum architecto eos blanditiis,
+                temporibus eveniet deserunt ex a non nesciunt.
+              </p>
+              <button
+                type="button"
+                class="bg-[#EE9322] px-3 py-2 rounded hover:bg-yellow-500 mt-7"
+              >
+                Read more
+              </button>
+            </div>
+          </div>
         </div>
-
-        <ul class="flex cursor-pointer">
-          <li class="mr-3 bg-[#EE9322] px-3 py-1 hover:bg-yellow-500 rounded">Home</li>
-          <li class="mr-3 bg-[#EE9322] px-3 py-1 hover:bg-yellow-500 rounded">About</li>
-        </ul>
-
-      </nav>
+      </header>
     </main>
 
     <script type="module" src="./assets/js/main.js"></script>
