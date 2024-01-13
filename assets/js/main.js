@@ -1,30 +1,75 @@
-/*
+document.addEventListener("DOMContentLoaded", loadFullFunctions);
+const api_url1 =
+  "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c48331c6ab19466d8db12780d436e488";
+  const api_url2 =
+  "https://newsapi.org/v2/everything?q=apple&from=2024-01-11&to=2024-01-11&sortBy=popularity&apiKey=c48331c6ab19466d8db12780d436e488";
+  const api_url3 =
+  "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=c48331c6ab19466d8db12780d436e488";
+function loadFullFunctions(e) {
+  const newsgriddiv = document.querySelector("#newsgriddiv");
 
-{
--"source": {
-"id": null,
-"name": "Theregister.com"
-},
-"author": "Chris Williams",
-"title": "SEC Twitter hijacked to push fake news of ETF approval",
-"description": "Buy the hype, sell the, wait, what do we do now?!\nBreaking The SEC today said its Twitter account was hijacked to wrongly claim it had approved Bitcoin ETFs, causing cryptocurrency to spike and drop in price.…",
-"url": "https://www.theregister.com/2024/01/09/btc_sec/",
-"urlToImage": "https://regmedia.co.uk/2021/01/15/shutterstock_bitcoin.jpg",
-"publishedAt": "2024-01-09T21:48:07Z",
-"content": "Breaking The SEC today said its Twitter account was hijacked to wrongly claim it had approved the hotly anticipated Bitcoin ETFs, causing cryptocurrency to spike and then slip in price.\r\nIn a now-del… [+1092 chars]"
-},
--{
--"source": {
-"id": null,
-"name": "ReadWrite"
-},
-"author": "Brian-Damien Morgan",
-"title": "Insomniac leak: Rhysida hack sparks rally of support for game developer",
-"description": "Hacker group Rhysida made good on a promise to leak gaming and personal data related to Insomniac Games. This has […]\nThe post Insomniac leak: Rhysida hack sparks rally of support for game developer appeared first on ReadWrite.",
-"url": "https://readwrite.com/insomniac-leak-rhysida-hack-sparks-rally-of-support-for-game-developer/",
-"urlToImage": "https://readwrite.com/wp-content/uploads/2023/12/pexels-soumil-kumar-735911-scaled.jpg",
-"publishedAt": "2023-12-19T15:01:51Z",
-"content": "Hacker group Rhysida made good on a promise to leak gaming and personal data related to Insomniac Games. This has caused a rallying surge of support from game developers in the wake of these personal… [+2491 chars]"
-},
+  async function getNewsData() {
+    try {
+      const response = await fetch(api_url1 || api_url2 || api_url3);
+      const jsonData = await response.json();
+      return jsonData;
+    } catch (error) {
+      console.log(`ERROR`, error);
+    }
+  }
 
-*/
+  const newsData = getNewsData().then((res) => {
+    const data = res.articles;
+
+    data.forEach(async (el) => {
+      console.log(el);
+
+      const element = await el;
+      const publishedAt = element.publishedAt;
+      const date = new Date(publishedAt).toLocaleString()
+      console.log(publishedAt);
+      newsgriddiv.innerHTML += `
+        <div class="border p-2 rounded overflow-hidden w-full">
+          <div class="overflow-hidden  border w-full" style="height: 150px;">
+            <img
+              src="${
+                element.urlToImage
+                  ? element.urlToImage
+                  : "./assets/img/noimg.png"
+              }"
+              class="max-h-80"
+              alt=""
+              height="60px"
+            />
+          </div>
+          <div class="flex justify-end mt-1">
+            <span class="text-[10px] items-center bg-[#219C90] px-1 rounded text-gray-50">
+              Author: ${element.author ? element.author : "Anonymous"}
+            </span>
+          </div>
+          <div class="mt-3">
+            <h3 class="uppercase text-xs tracking-wider font-semibold font-Mallanna">
+              ${element.title}
+            </h3>
+            <p class="text-xs mt-2 ml-2 hover:underline">
+              <a href="${
+                element.url
+              }" target="_blank" rel="noopener noreferrer">
+                ${
+                  element.description
+                    ? element.description
+                    : "No description provided"
+                }
+              </a>
+            </p>
+          </div>
+          <div class="text-sm mt-2">
+            <h1 class="px-1 text-[9px] items-center capitalize rounded font-semibold">
+              publishedAt :
+              <span class="text-red-600">${date}</span>
+            </h1>
+          </div>
+        </div>`;
+    });
+  });
+}
